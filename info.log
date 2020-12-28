@@ -1,2 +1,4 @@
 {"message":"Unauthorized request to path /","level":"error"}
 {"message":"Unauthorized request to path /","level":"error"}
+{"message":"UserService.populateUserWords is not a function","level":"error"}
+{"message":"UserService.populateUserWords is not a function","level":"error"}
