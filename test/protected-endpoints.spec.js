@@ -23,14 +23,14 @@ describe("Protected Endpoints", function () {
 
 	const protectedEndpoints = [
 		{
-			name: "PUT /api/auth/token",
+			first_name: "PUT /api/auth/token",
 			path: "/api/auth/token",
 			method: supertest(app).put,
 		},
 	];
 
 	protectedEndpoints.forEach((endpoint) => {
-		describe(endpoint.name, () => {
+		describe(endpoint.first_name, () => {
 			it(`responds 401 'Missing bearer token' when no bearer token`, () => {
 				return endpoint
 					.method(endpoint.path)
@@ -50,7 +50,7 @@ describe("Protected Endpoints", function () {
 			});
 
 			it(`responds 401 'Unauthorized request' when invalid sub in payload`, () => {
-				const invalidUser = { username: "user-not-existy", id: 1 };
+				const invalidUser = { email: "user-not-existy", id: 1 };
 				return endpoint
 					.method(endpoint.path)
 					.set("Authorization", helpers.makeAuthHeader(invalidUser))

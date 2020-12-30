@@ -21,14 +21,14 @@ function makeUsersArray() {
 	return [
 		{
 			id: 1,
-			username: "test-user-1",
-			name: "Test user 1",
+			email: "test-user-1",
+			first_name: "Test user 1",
 			password: "password",
 		},
 		{
 			id: 2,
-			username: "test-user-2",
-			name: "Test user 2",
+			email: "test-user-2",
+			first_name: "Test user 2",
 			password: "password",
 		},
 	];
@@ -36,13 +36,13 @@ function makeUsersArray() {
 
 /**
  * make a bearer token with jwt for authorization header
- * @param {object} user - contains `id`, `username`
+ * @param {object} user - contains `id`, `email`
  * @param {string} secret - used to create the JWT
  * @returns {string} - for HTTP authorization header
  */
 function makeAuthHeader(user, secret = process.env.JWT_SECRET) {
 	const token = jwt.sign({ user_id: user.id }, secret, {
-		subject: user.username,
+		subject: user.email,
 		algorithm: "HS256",
 	});
 	return `Bearer ${token}`;

@@ -25,11 +25,11 @@ describe("Auth Endpoints", function () {
 	describe(`POST /api/auth/token`, () => {
 		beforeEach("insert users", () => helpers.seedUsers(db, testUsers));
 
-		const requiredFields = ["username", "password"];
+		const requiredFields = ["email", "password"];
 
 		requiredFields.forEach((field) => {
 			const loginAttemptBody = {
-				username: testUser.username,
+				email: testUser.email,
 				password: testUser.password,
 			};
 
@@ -45,35 +45,35 @@ describe("Auth Endpoints", function () {
 			});
 		});
 
-		it(`responds 400 'invalid username or password' when bad username`, () => {
-			const userInvalidUser = { username: "user-not", password: "existy" };
+		it(`responds 400 'invalid email or password' when bad email`, () => {
+			const userInvalidUser = { email: "user-not", password: "existy" };
 			return supertest(app)
 				.post("/api/auth/token")
 				.send(userInvalidUser)
-				.expect(400, { error: `Incorrect username or password` });
+				.expect(400, { error: `Incorrect email or password` });
 		});
 
-		it(`responds 400 'invalid username or password' when bad password`, () => {
+		it(`responds 400 'invalid email or password' when bad password`, () => {
 			const userInvalidPass = {
-				username: testUser.username,
+				email: testUser.email,
 				password: "incorrect",
 			};
 			return supertest(app)
 				.post("/api/auth/token")
 				.send(userInvalidPass)
-				.expect(400, { error: `Incorrect username or password` });
+				.expect(400, { error: `Incorrect email or password` });
 		});
 
 		it(`responds 200 and JWT auth token using secret when valid credentials`, () => {
 			const userValidCreds = {
-				username: testUser.username,
+				email: testUser.email,
 				password: testUser.password,
 			};
 			const expectedToken = jwt.sign(
-				{ user_id: testUser.id, name: testUser.name },
+				{ user_id: testUser.id, first_name: testUser.first_name },
 				process.env.JWT_SECRET,
 				{
-					subject: testUser.username,
+					subject: testUser.email,
 					expiresIn: process.env.JWT_EXPIRY,
 					algorithm: "HS256",
 				}
@@ -95,10 +95,10 @@ describe("Auth Endpoints", function () {
 
 		it(`responds 200 and JWT auth token using secret`, () => {
 			const expectedToken = jwt.sign(
-				{ user_id: testUser.id, name: testUser.name },
+				{ user_id: testUser.id, first_name: testUser.first_name },
 				process.env.JWT_SECRET,
 				{
-					subject: testUser.username,
+					subject: testUser.email,
 					expiresIn: process.env.JWT_EXPIRY,
 					algorithm: "HS256",
 				}
