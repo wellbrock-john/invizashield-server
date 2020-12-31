@@ -2,3 +2,11 @@
 {"message":"Unauthorized request to path /","level":"error"}
 {"message":"UserService.populateUserWords is not a function","level":"error"}
 {"message":"UserService.populateUserWords is not a function","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"user\" (\"email\", \"first_name\", \"password\") values ($1, $2, $3) returning * - null value in column \"last_name\" violates not-null constraint","level":"error"}
