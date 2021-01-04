@@ -1,0 +1,4 @@
+ALTER TABLE "vehicles"
+    DROP COLUMN IF EXISTS userId;
+
+DROP TABLE IF EXISTS "users";
