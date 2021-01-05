@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const UserService = require("./users-service");
-const {requireAuth} = require("../middleware/jwt-auth");
+const { requireAuth } = require("../middleware/jwt-auth");
 
 const userRouter = express.Router();
 const jsonBodyParser = express.json();
@@ -48,12 +48,12 @@ userRouter.post("/", jsonBodyParser, async (req, res, next) => {
 	}
 });
 
-userRouter.get("/", requireAuth, (req, res, next) => {
+userRouter.get("/", jsonBodyParser, requireAuth, (req, res, next) => {
 	UserService.getUserWithEmail(req.app.get("db"), req.user.email)
-			.then((user) => {
-				res.json(UserService.serializeUser(res.user));
-			})
-			.catch(next);
-})
+		.then((user) => {
+			res.json(UserService.serializeUser(user));
+		})
+		.catch(next);
+});
 
 module.exports = userRouter;

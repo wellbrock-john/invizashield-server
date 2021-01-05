@@ -18,7 +18,7 @@ const UserService = {
 			.then(([user]) => user);
 	},
 	getUserWithEmail(db, email) {
-		return db.select("first_name").where({ email }).from("users");
+		return db.select("*").where({ email }).from("users");
 	},
 	validatePassword(password) {
 		if (password.length < 8) {
