@@ -1,10 +1,11 @@
 const bcrypt = require("bcryptjs");
+const xss = require("xss");
 
 const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
 
 const UserService = {
 	hasUserWithEmail(db, email) {
-		return db("user")
+		return db("users")
 			.where({ email })
 			.first()
 			.then((user) => !!user);
@@ -12,9 +13,12 @@ const UserService = {
 	insertUser(db, newUser) {
 		return db
 			.insert(newUser)
-			.into("user")
+			.into("users")
 			.returning("*")
 			.then(([user]) => user);
+	},
+	getUserWithEmail(db, email) {
+		return db.select("first_name").where({ email }).from("users");
 	},
 	validatePassword(password) {
 		if (password.length < 8) {
@@ -37,9 +41,9 @@ const UserService = {
 	serializeUser(user) {
 		return {
 			id: user.id,
-			first_name: user.first_name,
-			last_name: user.last_name,
-			email: user.email,
+			first_name: xss(user.first_name),
+			last_name: xss(user.last_name),
+			email: xss(user.email),
 		};
 	},
 };

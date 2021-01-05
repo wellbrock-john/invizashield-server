@@ -70,7 +70,7 @@ describe("Auth Endpoints", function () {
 				password: testUser.password,
 			};
 			const expectedToken = jwt.sign(
-				{ user_id: testUser.id, first_name: testUser.first_name },
+				{ userId: testUser.id, first_name: testUser.first_name },
 				process.env.JWT_SECRET,
 				{
 					subject: testUser.email,
@@ -95,7 +95,7 @@ describe("Auth Endpoints", function () {
 
 		it(`responds 200 and JWT auth token using secret`, () => {
 			const expectedToken = jwt.sign(
-				{ user_id: testUser.id, first_name: testUser.first_name },
+				{ userId: testUser.id, first_name: testUser.first_name },
 				process.env.JWT_SECRET,
 				{
 					subject: testUser.email,

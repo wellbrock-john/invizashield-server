@@ -6,7 +6,7 @@ const authRouter = express.Router();
 const jsonBodyParser = express.json();
 
 authRouter
-	.route("/token")
+	.route("/login")
 	.post(jsonBodyParser, async (req, res, next) => {
 		const { email, password } = req.body;
 		const loginUser = { email, password };
@@ -40,7 +40,7 @@ authRouter
 
 			const sub = dbUser.email;
 			const payload = {
-				user_id: dbUser.id,
+				userId: dbUser.id,
 				first_name: dbUser.first_name,
 			};
 			res.send({
@@ -54,7 +54,7 @@ authRouter
 	.put(requireAuth, (req, res) => {
 		const sub = req.user.email;
 		const payload = {
-			user_id: req.user.id,
+			userId: req.user.id,
 			first_name: req.user.first_name,
 		};
 		res.send({
