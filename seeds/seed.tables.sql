@@ -19,3 +19,4 @@ VALUES
 SELECT setval('user_id_seq', (SELECT MAX(id) from "user"));
 
 COMMIT;
+
