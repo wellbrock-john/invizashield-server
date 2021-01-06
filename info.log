@@ -25,3 +25,10 @@
 {"message":"Cannot read property 'user' of undefined","level":"error"}
 {"message":"Cannot read property 'email' of undefined","level":"error"}
 {"message":"Cannot read property 'email' of undefined","level":"error"}
+{"message":"res.send(...).catch is not a function","level":"error"}
+{"message":"res.send(...).catch is not a function","level":"error"}
+{"message":"res.send(...).catch is not a function","level":"error"}
+{"message":"res.send(...).catch is not a function","level":"error"}
+{"message":"res.send(...).catch is not a function","level":"error"}
+{"message":"res.json(...).catch is not a function","level":"error"}
+{"message":"res.json(...).next is not a function","level":"error"}
