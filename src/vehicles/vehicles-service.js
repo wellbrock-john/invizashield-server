@@ -24,9 +24,8 @@ const VehiclesService = {
 	deleteDemoVehicles(db, userId) {
 		return db("vehicles").where({ userId }).delete();
 	},
-	updateVehicle(db, id, newVehicleFields, userId) {
-		newVehicleFields.userId = userId;
-		return db("vehicles").where({ id, userId }).update(newVehicleFields);
+	updateVehicle(db, id, vehicleToUpdate) {
+		return db("vehicles").where({ id }).update(vehicleToUpdate);
 	},
 
 	serializeVehicle(vehicle) {

@@ -42,6 +42,23 @@ vehiclesRouter
 	.get((req, res) => {
 		res.json(VehiclesService.serializeVehicle(res.vehicle));
 	})
+	.put(jsonBodyParser, (req, res, next) => {
+		// for (const field of ["year", "make", "model", "submodel", "color", "paintCondition", "coverage"]) {
+		// 	if (!req.body[field]) {
+		// 		return res.status(400).send(`"${field}" is required`);
+		// 	}
+		// }
+
+		const { year, make, model, submodel, color, paintCondition, coverage } = req.body;
+		const vehicleToUpdate = { year, make, model, submodel, color, paintCondition, coverage };
+		const { id } = req.params;
+
+		VehiclesService.updateVehicle(req.app.get("db"), id, vehicleToUpdate)
+			.then(() => {
+				res.status(201).end()
+			})
+			.catch(next);
+	})
 	.delete((req, res, next) => {
 		const { id } = req.params;
 		VehiclesService.deleteVehicle(req.app.get("db"), id, req.user.id)

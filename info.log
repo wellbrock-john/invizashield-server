@@ -32,3 +32,14 @@
 {"message":"res.send(...).catch is not a function","level":"error"}
 {"message":"res.json(...).catch is not a function","level":"error"}
 {"message":"res.json(...).next is not a function","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: 2.","level":"error"}
+{"message":"Unexpected token } in JSON at position 51","level":"error"}
+{"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: 7.","level":"error"}
+{"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: 7.","level":"error"}
+{"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: 7.","level":"error"}
+{"message":"select * from \"vehicles\" where \"id\" = $1 and \"userId\" = $2 limit $3 - invalid input syntax for integer: \"undefined\"","level":"error"}
+{"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: year,make,model,submodel,color,paintCondition,coverage.","level":"error"}
+{"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: year,make,model,submodel,color,paintCondition,coverage.","level":"error"}
+{"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: year,make,model,submodel,color,paintCondition,coverage.","level":"error"}
