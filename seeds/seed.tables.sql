@@ -4,10 +4,11 @@ TRUNCATE
   "vehicles",
   "users";
 
-INSERT INTO "users" ("id", "email", "first_name", "last_name", "password")
+INSERT INTO "users" ("id", "email", "phone_num", "first_name", "last_name", "password")
 VALUES
   (1,
     'admin@admin.com',
+    '(513)-833-4196',
     'John',
     'The Admin',
     -- password = "pass"

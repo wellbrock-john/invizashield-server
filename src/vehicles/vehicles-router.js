@@ -43,11 +43,11 @@ vehiclesRouter
 		res.json(VehiclesService.serializeVehicle(res.vehicle));
 	})
 	.put(jsonBodyParser, (req, res, next) => {
-		// for (const field of ["year", "make", "model", "submodel", "color", "paintCondition", "coverage"]) {
-		// 	if (!req.body[field]) {
-		// 		return res.status(400).send(`"${field}" is required`);
-		// 	}
-		// }
+		for (const field of ["year", "make", "model", "submodel", "color", "paintCondition", "coverage"]) {
+			if (!req.body[field]) {
+				return res.status(400).send(`"${field}" is required`);
+			}
+		}
 
 		const { year, make, model, submodel, color, paintCondition, coverage } = req.body;
 		const vehicleToUpdate = { year, make, model, submodel, color, paintCondition, coverage };
@@ -55,7 +55,7 @@ vehiclesRouter
 
 		VehiclesService.updateVehicle(req.app.get("db"), id, vehicleToUpdate)
 			.then(() => {
-				res.status(201).end()
+				res.status(201).json("Success").end()
 			})
 			.catch(next);
 	})

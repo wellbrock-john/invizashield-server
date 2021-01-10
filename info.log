@@ -43,3 +43,7 @@
 {"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: year,make,model,submodel,color,paintCondition,coverage.","level":"error"}
 {"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: year,make,model,submodel,color,paintCondition,coverage.","level":"error"}
 {"message":"Empty .update() call detected! Update data does not contain any values to update. This will result in a faulty query. Table: vehicles. Columns: year,make,model,submodel,color,paintCondition,coverage.","level":"error"}
+{"message":"UsersService is not defined","level":"error"}
+{"message":"UsersService is not defined","level":"error"}
+{"message":"UserService.updateUser is not a function","level":"error"}
+{"message":"select * from \"users\" where \"id\" = $1 limit $2 - invalid input syntax for integer: \"undefined\"","level":"error"}
