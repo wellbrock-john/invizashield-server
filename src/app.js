@@ -8,6 +8,7 @@ const authRouter = require("./auth/auth-router");
 const usersRouter = require("./users/users-router");
 const vehiclesRouter = require("./vehicles/vehicles-router");
 const quotesRouter = require("./admin/quotes-router");
+const contactRouter = require("./contact/contact-router");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(helmet());
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/vehicles", vehiclesRouter);
+app.use("/api/contact", contactRouter)
 app.use("/api/quotes", quotesRouter);
 
 app.use(errorHandler);

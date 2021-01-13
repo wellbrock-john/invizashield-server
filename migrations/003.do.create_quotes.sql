@@ -12,5 +12,5 @@ CREATE TABLE "quotes" (
     "email" TEXT NOT NULL,
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
-    "phone_num" TEXT NOT NULL;
+    "phone_num" TEXT NOT NULL
 )
