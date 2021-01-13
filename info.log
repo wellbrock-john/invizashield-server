@@ -87,3 +87,8 @@
 {"message":"insert into \"quotes\" (\"color\", \"coverage\", \"id\", \"make\", \"model\", \"paintCondition\", \"submodel\", \"userId\", \"year\") values ($1, $2, $3, $4, $5, $6, $7, $8, $9) - null value in column \"email\" violates not-null constraint","level":"error"}
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
 {"message":"VehiclesService.insertVehicleQuote(...).insertVehicle is not a function","level":"error"}
+{"message":"Cannot read property 'id' of undefined","level":"error"}
+{"message":"Cannot read property 'id' of undefined","level":"error"}
+{"message":"Cannot read property 'id' of undefined","level":"error"}
+{"message":"Cannot read property 'id' of undefined","level":"error"}
+{"message":"Cannot read property 'id' of undefined","level":"error"}

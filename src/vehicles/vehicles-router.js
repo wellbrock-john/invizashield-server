@@ -16,14 +16,37 @@ vehiclesRouter
 			.catch(next);
 	})
 	.post(jsonBodyParser, (req, res, next) => {
-		for (const field of ["year", "make", "model", "color", "paintCondition", "coverage"]) {
+		for (const field of [
+			"year",
+			"make",
+			"model",
+			"color",
+			"paintCondition",
+			"coverage",
+		]) {
 			if (!req.body[field]) {
 				return res.status(400).send(`'${field}' is required`);
 			}
 		}
 
-		const { year, make, model, color, paintCondition, coverage } = req.body;
-		const newVehicle = { year, make, model, color, paintCondition, coverage };
+		const {
+			year,
+			make,
+			model,
+			submodel,
+			color,
+			paintCondition,
+			coverage,
+		} = req.body;
+		const newVehicle = {
+			year,
+			make,
+			model,
+			submodel,
+			color,
+			paintCondition,
+			coverage,
+		};
 
 		VehiclesService.insertVehicle(req.app.get("db"), newVehicle, req.user.id)
 			.then((vehicle) => {
@@ -43,19 +66,43 @@ vehiclesRouter
 		res.json(VehiclesService.serializeVehicle(res.vehicle));
 	})
 	.put(jsonBodyParser, (req, res, next) => {
-		for (const field of ["year", "make", "model", "submodel", "color", "paintCondition", "coverage"]) {
+		for (const field of [
+			"year",
+			"make",
+			"model",
+			"submodel",
+			"color",
+			"paintCondition",
+			"coverage",
+		]) {
 			if (!req.body[field]) {
 				return res.status(400).send(`"${field}" is required`);
 			}
 		}
 
-		const { year, make, model, submodel, color, paintCondition, coverage } = req.body;
-		const vehicleToUpdate = { year, make, model, submodel, color, paintCondition, coverage };
+		const {
+			year,
+			make,
+			model,
+			submodel,
+			color,
+			paintCondition,
+			coverage,
+		} = req.body;
+		const vehicleToUpdate = {
+			year,
+			make,
+			model,
+			submodel,
+			color,
+			paintCondition,
+			coverage,
+		};
 		const { id } = req.params;
 
 		VehiclesService.updateVehicle(req.app.get("db"), id, vehicleToUpdate)
 			.then(() => {
-				res.status(201).json("Success").end()
+				res.status(201).json("Success").end();
 			})
 			.catch(next);
 	})

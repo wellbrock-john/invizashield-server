@@ -15,7 +15,14 @@ const VehiclesService = {
 			.into("vehicles")
 			.returning("*")
 			.then((rows) => {
-				return rows[0];
+				row = rows[0];
+				return db
+					.insert(row)
+					.into("quotes")
+					.returning("*")
+					.then((rows) => {
+						return rows[0];
+					});
 			});
 	},
 	deleteVehicle(db, id, userId) {
