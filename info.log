@@ -47,3 +47,19 @@
 {"message":"UsersService is not defined","level":"error"}
 {"message":"UserService.updateUser is not a function","level":"error"}
 {"message":"select * from \"users\" where \"id\" = $1 limit $2 - invalid input syntax for integer: \"undefined\"","level":"error"}
+{"message":"insert into \"quotes\" (\"color\", \"coverage\", \"make\", \"model\", \"paintCondition\", \"userId\", \"year\") values ($1, $2, $3, $4, $5, $6, $7) - null value in column \"first_name\" violates not-null constraint","level":"error"}
+{"message":"row is not defined","level":"error"}
+{"message":"row is not defined","level":"error"}
+{"message":"select * from \"users\" where \"userId\" = $1 limit $2 - column \"userId\" does not exist","level":"error"}
+{"message":"id is not defined","level":"error"}
+{"message":"insert is not defined","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"id\", \"last_name\", \"password\", \"phone_num\") values ($1, $2, $3, $4, $5, $6) - column \"password\" of relation \"quotes\" does not exist","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"id\", \"last_name\", \"phone_num\") values ($1, $2, $3, $4, $5) - null value in column \"userId\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"id\", \"last_name\", \"phone_num\") values ($1, $2, $3, $4, $5) - null value in column \"userId\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"id\", \"last_name\", \"phone_num\") values ($1, $2, $3, $4, $5) - null value in column \"userId\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"id\", \"last_name\", \"phone_num\") values ($1, $2, $3, $4, $5) - null value in column \"userId\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"id\", \"last_name\", \"phone_num\") values ($1, $2, $3, $4, $5) - null value in column \"userId\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"last_name\", \"phone_num\") values ($1, $2, $3, $4) - null value in column \"userId\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"email\", \"first_name\", \"last_name\", \"phone_num\") values ($1, $2, $3, $4) - null value in column \"userId\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"color\", \"coverage\", \"id\", \"make\", \"model\", \"paintCondition\", \"submodel\", \"userId\", \"year\") values ($1, $2, $3, $4, $5, $6, $7, $8, $9) - null value in column \"first_name\" violates not-null constraint","level":"error"}
+{"message":"insert into \"quotes\" (\"color\", \"coverage\", \"id\", \"make\", \"model\", \"paintCondition\", \"submodel\", \"userId\", \"year\") values ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning select * from \"users\" where \"id\" = $10 - syntax error at or near \"select\"","level":"error"}

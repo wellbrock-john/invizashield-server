@@ -1,6 +1,7 @@
 BEGIN;
 
 TRUNCATE
+  "quotes",
   "vehicles",
   "users";
 
