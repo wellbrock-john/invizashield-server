@@ -1,4 +1,5 @@
 const xss = require("xss");
+const { v4: uuidv4 } = require("uuid");
 
 const VehiclesService = {
 	getVehiclesForUser(db, userId) {
@@ -14,25 +15,30 @@ const VehiclesService = {
 			.insert(newVehicle)
 			.into("vehicles")
 			.returning("*")
-			.then((rows) => {
-				row = rows[0];
-				return db
-					.insert(row)
-					.into("quotes")
-					.returning("*")
-					.then((rows) => {
-						return rows[0];
-					});
-			});
+			.then(([vehicle]) => vehicle);
 	},
 	deleteVehicle(db, id, userId) {
 		return db("vehicles").where({ id, userId }).delete();
 	},
-	deleteDemoVehicles(db, userId) {
-		return db("vehicles").where({ userId }).delete();
-	},
 	updateVehicle(db, id, vehicleToUpdate) {
 		return db("vehicles").where({ id }).update(vehicleToUpdate);
+	},
+	createQuote(db, newVehicle, user) {
+		quote = {
+			year: newVehicle.year,
+			make: newVehicle.make,
+			model: newVehicle.model,
+			submodel: newVehicle.submodel,
+			color: newVehicle.color,
+			paintCondition: newVehicle.paintCondition,
+			coverage: newVehicle.coverage,
+			userId: user.id,
+			email: user.email,
+			first_name: user.first_name,
+			last_name: user.last_name,
+			phone_num: user.phone_num,
+		};
+		return db.insert(quote).into("quotes");
 	},
 
 	serializeVehicle(vehicle) {

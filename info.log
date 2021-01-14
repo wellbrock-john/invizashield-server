@@ -92,3 +92,15 @@
 {"message":"Cannot read property 'id' of undefined","level":"error"}
 {"message":"Cannot read property 'id' of undefined","level":"error"}
 {"message":"Cannot read property 'id' of undefined","level":"error"}
+{"message":"Cannot read property 'id' of undefined","level":"error"}
+{"message":"VehiclesService.createQuote(...).next is not a function","level":"error"}
+{"message":"table is not defined","level":"error"}
+{"message":"quotes is not defined","level":"error"}
+{"message":"id is not defined","level":"error"}
+{"message":"uuid is not defined","level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"message":"Cannot read property 'then' of undefined","level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"message":"vehicle is not defined","level":"error"}

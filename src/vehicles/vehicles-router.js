@@ -15,7 +15,7 @@ vehiclesRouter
 			})
 			.catch(next);
 	})
-	.post(jsonBodyParser, (req, res, next) => {
+	.post(jsonBodyParser, async (req, res, next) => {
 		for (const field of [
 			"year",
 			"make",
@@ -48,14 +48,30 @@ vehiclesRouter
 			coverage,
 		};
 
-		VehiclesService.insertVehicle(req.app.get("db"), newVehicle, req.user.id)
-			.then((vehicle) => {
-				res
-					.status(201)
-					.location(`/api/vehicles/${vehicle.id}`)
-					.json(VehiclesService.serializeVehicle(vehicle));
-			})
-			.catch(next);
+		const { id, email, first_name, last_name, phone_num } = req.user;
+		const user = {
+			id,
+			email,
+			first_name,
+			last_name,
+			phone_num,
+		};
+		try {
+			await VehiclesService.createQuote(req.app.get("db"), newVehicle, user);
+
+			const vehicle = await VehiclesService.insertVehicle(
+				req.app.get("db"),
+				newVehicle,
+				user.id
+			);
+
+			res
+				.status(201)
+				.location(`/api/vehicles/${vehicle.id}`)
+				.json(VehiclesService.serializeVehicle(vehicle));
+		} catch (error) {
+			next(error);
+		}
 	});
 
 vehiclesRouter
