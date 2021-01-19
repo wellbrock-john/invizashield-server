@@ -1,26 +1,47 @@
-# Express Boilerplate!
+# InvizaShield
 
-This is a boilerplate project used for starting new projects!
+## This application will stand as a gift to my father to be used for his business, Invizashield LLC, and serve as a grand gesture of appreciation and gratitude for his support thorugh this transitional period of my life going from 'shop boy' to Software Engineer. The goal of building this application was to create a website that brings Invizashield's online presence into a higher class. It was built with the styling intentions to deliver information to clients that will catch the eye and provide persuasive bits of information to earn business. User account creation allows for streamlined communications between my father and his client's and email components built into the site also allow for quick messaging from clients directly to my father's email.
 
-## Set up
+```
+Demo Account Credentials:
+email: demo@demo.com
+password: P@ssword1234
+```
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+[Live Site]()
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+[Frontend Repo](https://github.com/wellbrock-john/invizashield-client)
 
-## Scripts
+## [Backend Repo](https://github.com/wellbrock-john/invizashield-server)
 
-Start the application `npm start`
+## API Documentation
 
-Start nodemon for the application `npm run dev`
+- /api/auth
+- - POST - login a user
 
-Run the tests `npm test`
+- /api/users
+- - POST - create/register a new user
+- - PUT - edit user information
 
-## Deploying
+- /api/vehicles
+- - GET - get vehicles by user
+- - POST - save vehicles for a user
+- - PUT - edit vehicles for a user
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+- /api/vehicles/:id
+- - DELETE - delete a vehicle by id
+
+- /api/contact
+- - POST - send email to business owner
+
+---
+
+## Tech Stack
+
+### React | Node.js | Express | PostgreSQL | SQL | JWT | HTML | CSS
+
+---
+
+```
+Created by @wellbrock-john
+```
