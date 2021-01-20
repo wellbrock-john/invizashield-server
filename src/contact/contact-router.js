@@ -1,12 +1,15 @@
+require("dotenv").config();
+
 const express = require("express");
 const nodemailer = require("nodemailer");
 const contactRouter = express.Router();
 const jsonBodyParser = express.json();
 
 const contactEmail = nodemailer.createTransport({
-	service: "Yahoo",
+	service: "Gmail",
 	auth: {
-		user: "wellbrock_john@yahoo.com",
+		user: process.env.EMAIL_USER,
+		pass: process.env.EMAIL_PASS,
 	},
 });
 
