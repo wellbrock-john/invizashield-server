@@ -4,32 +4,32 @@ const contactRouter = express.Router();
 const jsonBodyParser = express.json();
 
 const contactEmail = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "wellbrock23john@gmail.com",
-    pass: "Jerb2019#1",
-  },
+	service: "Yahoo",
+	auth: {
+		user: "wellbrock_john@yahoo.com",
+		pass: "mqtebugjkdvypqbr",
+	},
 });
 
 contactRouter.route("/").post(jsonBodyParser, (req, res, next) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const message = req.body.message;
-  const mail = {
-    from: name,
-    to: "***************@gmail.com",
-    subject: "Contact Form Submission",
-    html: `<p>Name: ${name}</p>
+	const name = req.body.name;
+	const email = req.body.email;
+	const message = req.body.message;
+	const mail = {
+		from: name,
+		to: "***************@gmail.com",
+		subject: "Contact Form Submission",
+		html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
              <p>Message: ${message}</p>`,
-  };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json({ status: "ERROR" });
-    } else {
-      res.json({ status: "Message Sent" });
-    }
-  });
+	};
+	contactEmail.sendMail(mail, (error) => {
+		if (error) {
+			res.json({ status: "ERROR" });
+		} else {
+			res.json({ status: "Message Sent" });
+		}
+	});
 });
 
 module.exports = contactRouter;
