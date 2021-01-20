@@ -7,7 +7,6 @@ const contactEmail = nodemailer.createTransport({
 	service: "Yahoo",
 	auth: {
 		user: "wellbrock_john@yahoo.com",
-		pass: "mqtebugjkdvypqbr",
 	},
 });
 
