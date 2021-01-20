@@ -8,8 +8,8 @@ const jsonBodyParser = express.json();
 const contactEmail = nodemailer.createTransport({
 	service: "gmail",
 	auth: {
-		user: process.env.EMAIL_USER,
-		pass: process.env.EMAIL_PASS,
+		user: "wellbrock23john@gmail.com",
+		pass: "Pleasework1234",
 	},
 });
 
