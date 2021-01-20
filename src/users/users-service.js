@@ -10,6 +10,12 @@ const UserService = {
       .first()
       .then((user) => !!user);
   },
+  hasUserWithPhone(db, phone_num) {
+    return db("users")
+    .where({ phone_num })
+    .first()
+    .then((user) => !!user);
+  },
   insertUser(db, newUser) {
     return db
       .insert(newUser)

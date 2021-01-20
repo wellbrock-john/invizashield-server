@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const UserService = require("./users-service");
 const { requireAuth } = require("../middleware/jwt-auth");
+const { hasUserWithPhone } = require("./users-service");
 
 const userRouter = express.Router();
 const jsonBodyParser = express.json();
@@ -30,9 +31,15 @@ userRouter.post("/", jsonBodyParser, async (req, res, next) => {
 			req.app.get("db"),
 			email
 		);
-
 		if (hasUserWithEmail)
 			return res.status(400).json({ error: `Email already in use` });
+
+		const hasUserWithPhone = await UserService.hasUserWithPhone(
+			req.app.get("db"),
+			phone_num
+		)
+		if (hasUserWithPhone)
+			return res.status(400).json({ error: `Phone Number already in use` });
 
 		const hashedPassword = await UserService.hashPassword(password);
 
