@@ -8,7 +8,7 @@ email: demo@demo.com
 password: P@ssword1234
 ```
 
-[Live Site]()
+[Live Site](https://invizashield-client.vercel.app/)
 
 [Frontend Repo](https://github.com/wellbrock-john/invizashield-client)
 
