@@ -6,7 +6,7 @@ const contactRouter = express.Router();
 const jsonBodyParser = express.json();
 
 const contactEmail = nodemailer.createTransport({
-	service: "yahoo",
+	service: "Yahoo",
 	auth: {
 		user: "email_for_thinkful_grading@yahoo.com",
 		pass: "Password#3",
