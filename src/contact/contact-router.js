@@ -19,7 +19,7 @@ contactRouter.route("/").post(jsonBodyParser, (req, res, next) => {
 	const message = req.body.message;
 	const mail = {
 		from: name,
-		to: "***************@gmail.com",
+		to: "**************************@yahoo.com",
 		subject: "Contact Form Submission",
 		html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
