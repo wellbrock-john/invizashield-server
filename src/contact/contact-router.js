@@ -6,7 +6,10 @@ const contactRouter = express.Router();
 const jsonBodyParser = express.json();
 
 const contactEmail = nodemailer.createTransport({
-	service: "Yahoo",
+	host: "smtp.mail.yahoo.com",
+	secureConnection: true,
+	port: 465,
+	service: "yahoo",
 	auth: {
 		user: "email_for_thinkful_grading@yahoo.com",
 		pass: "Password#3",
@@ -19,7 +22,7 @@ contactRouter.route("/").post(jsonBodyParser, (req, res, next) => {
 	const message = req.body.message;
 	const mail = {
 		from: name,
-		to: "**************************@yahoo.com",
+		to: "email_for_thinkful_grading@yahoo.com",
 		subject: "Contact Form Submission",
 		html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
