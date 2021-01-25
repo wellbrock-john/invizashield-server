@@ -6,10 +6,10 @@ const contactRouter = express.Router();
 const jsonBodyParser = express.json();
 
 const contactEmail = nodemailer.createTransport({
-	service: "gmail",
+	service: "yahoo",
 	auth: {
-		user: "wellbrock23john@gmail.com",
-		pass: "Pleasework1234",
+		user: "email_for_thinkful_grading@yahoo.com",
+		pass: "Password#3",
 	},
 });
 
