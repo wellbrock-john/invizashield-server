@@ -22,7 +22,7 @@ contactRouter.route("/").post(jsonBodyParser, (req, res, next) => {
 	const message = req.body.message;
 	const mail = {
 		from: name,
-		to: "email_for_thinkful_grading",
+		to: "email_for_thinkful_grading@yahoo.com",
 		subject: "Contact Form Submission",
 		html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
