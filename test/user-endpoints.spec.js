@@ -26,11 +26,12 @@ describe("User Endpoints", function () {
 	describe(`POST /api/users`, () => {
 		beforeEach("insert users", () => helpers.seedUsers(db, testUsers));
 
-		const requiredFields = ["email", "password", "first_name", "last_name"];
+		const requiredFields = ["email", "phone_num", "password", "first_name", "last_name"];
 
 		requiredFields.forEach((field) => {
 			const registerAttemptBody = {
 				email: "test email",
+				phone_num: "test phone_num",
 				password: "test password",
 				first_name: "test first_name",
 				last_name: "test last_name",
@@ -51,6 +52,7 @@ describe("User Endpoints", function () {
 		it(`responds 400 'Password must be longer than 8 characters' when empty password`, () => {
 			const userShortPassword = {
 				email: "test email",
+				phone_num: "test phone_num",
 				password: "1234567",
 				first_name: "test first_name",
 				last_name: "test last_name",
@@ -64,6 +66,7 @@ describe("User Endpoints", function () {
 		it(`responds 400 'Password must be less than 72 characters' when long password`, () => {
 			const userLongPassword = {
 				email: "test email",
+				phone_num: "test phone_num",
 				password: "*".repeat(73),
 				first_name: "test first_name",
 				last_name: "test last_name",
@@ -77,6 +80,7 @@ describe("User Endpoints", function () {
 		it(`responds 400 error when password starts with spaces`, () => {
 			const userPasswordStartsSpaces = {
 				email: "test email",
+				phone_num: "test phone_num",
 				password: " 1Aa!2Bb@",
 				first_name: "test first_name",
 				last_name: "test last_name",
@@ -92,6 +96,7 @@ describe("User Endpoints", function () {
 		it(`responds 400 error when password ends with spaces`, () => {
 			const userPasswordEndsSpaces = {
 				email: "test email",
+				phone_num: "test phone_num",
 				password: "1Aa!2Bb@ ",
 				first_name: "test first_name",
 				last_name: "test last_name",
@@ -107,6 +112,7 @@ describe("User Endpoints", function () {
 		it(`responds 400 error when password isn't complex enough`, () => {
 			const userPasswordNotComplex = {
 				email: "test email",
+				phone_num: "test phone_num",
 				password: "11AAaabb",
 				first_name: "test first_name",
 				last_name: "test last_name",
@@ -122,6 +128,7 @@ describe("User Endpoints", function () {
 		it(`responds 400 'User email already in use' when email isn't unique`, () => {
 			const duplicateUser = {
 				email: testUser.email,
+				phone_num: "test phone_num",
 				password: "11AAaa!!",
 				first_name: "test first_name",
 				last_name: "test last_name",
@@ -136,6 +143,7 @@ describe("User Endpoints", function () {
 			it(`responds 201, serialized user with no password`, () => {
 				const newUser = {
 					email: "test email",
+					phone_num: "test phone_num",
 					password: "11AAaa!!",
 					first_name: "test first_name",
 					last_name: "test last_name",
@@ -157,6 +165,7 @@ describe("User Endpoints", function () {
 			it(`stores the new user in db with bcryped password`, () => {
 				const newUser = {
 					email: "test email",
+					phone_num: "test phone_num",
 					password: "11AAaa!!",
 					first_name: "test first_name",
 					last_name: "test last_name",

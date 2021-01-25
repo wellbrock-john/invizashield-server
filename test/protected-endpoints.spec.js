@@ -23,8 +23,8 @@ describe("Protected Endpoints", function () {
 
 	const protectedEndpoints = [
 		{
-			first_name: "PUT /api/auth/token",
-			path: "/api/auth/token",
+			first_name: "PUT /api/auth/login",
+			path: "/api/auth/login",
 			method: supertest(app).put,
 		},
 	];

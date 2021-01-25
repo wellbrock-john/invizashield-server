@@ -22,6 +22,7 @@ function makeUsersArray() {
     {
       id: 1,
       email: "test-user-1",
+      phone_num: "555-555-5555",
       first_name: "Test",
       last_name: "user 1",
       password: "password",
@@ -29,6 +30,7 @@ function makeUsersArray() {
     {
       id: 2,
       email: "test-user-2",
+      phone_num: "777-777-7777",
       first_name: "Test",
       last_name: "user 2",
       password: "password",
@@ -60,6 +62,7 @@ function cleanTables(db) {
     trx
       .raw(
         `TRUNCATE
+        "quotes",
 				"vehicles",
         "users"`
       )
