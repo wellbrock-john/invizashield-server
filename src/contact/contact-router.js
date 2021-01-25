@@ -1,19 +1,15 @@
-require("dotenv").config();
-
 const express = require("express");
 const nodemailer = require("nodemailer");
 const contactRouter = express.Router();
 const jsonBodyParser = express.json();
+const { EMAIL_USER, EMAIL_PASS } = require("../config");
 
-const contactEmail = nodemailer.createTransport({
-	host: "smtp.mail.yahoo.com",
-	secureConnection: true,
-	port: 465,
-	service: "yahoo",
+const transporter = nodemailer.createTransport({
+	service: 'Gmail',
 	auth: {
-		user: "email_for_thinkful_grading@yahoo.com",
-		pass: "Password#3",
-	},
+		user: EMAIL_USER,
+		pass: EMAIL_PASS,
+	}
 });
 
 contactRouter.route("/").post(jsonBodyParser, (req, res, next) => {
@@ -22,13 +18,13 @@ contactRouter.route("/").post(jsonBodyParser, (req, res, next) => {
 	const message = req.body.message;
 	const mail = {
 		from: name,
-		to: "email_for_thinkful_grading@yahoo.com",
+		to: "wellbrock_john@yahoo.com",
 		subject: "Contact Form Submission",
 		html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
              <p>Message: ${message}</p>`,
 	};
-	contactEmail.sendMail(mail, (error) => {
+	transporter.sendMail(mail, (error) => {
 		if (error) {
 			console.log(error);
 			res.json({ status: "ERROR" });
